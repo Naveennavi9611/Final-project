@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <title>AI Answer Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body.a-body-dark {
+            /* background-color: #121212; */
+            background-image: url("qs.png");
+            color: #fff;
+            background-position: center;
+            background-size: cover;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .page-container {
+            padding: 20px;
+        }
+
+        .page-section {
+            margin-bottom: 40px;
+        }
+
+        .page-section-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header-h1.light {
+            color: #fff;
+            text-align: center;
+        }
+
+        .tool-header-body {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tool-embed-container {
+            text-align: center;
+            position: relative;
+        }
+
+        #tool-frame {
+            width: 100%;
+            height: 670px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        pre code { 
+            background: transparent !important; 
+        }
+
+        input[type=email] { 
+            -webkit-appearance: none !important; 
+            -moz-appearance: none !important; 
+            appearance: none !important; 
+        }
+
+    </style>
+</head>
+<body class="a-body-dark">
+    <!-- Main Page Content -->
+    <div class="page-container">
+        <div class="page-section no-bottom page-dark-section">
+            <div class="page-section-container">
+                <h1 class="page-header-h1 light">AI Answer Generator</h1>
+                <div class="tool-header-body">Quick answers to any queries - where clarity meets convenience.You can ask questions,Code,Code converter everything..</div>
+                <div class="loader-script w-embed w-script">
+                    <script>
+                        const removeLoader = () => {
+                          document.getElementById("loader").style.display = "none";
+                      }
+                    </script>
+                </div>
+                <div class="tool-embed-container">
+                    <div class="rich-text-block-2 w-richtext">
+                        <div class="w-embed w-iframe">
+                            <iframe id="tool-frame" width="100%" height="670px" style="border-radius:20px; border-style: none;" allow="clipboard-read; clipboard-write" src="https://gsheets-formula-generator.bubbleapps.io/answer-generator" onload="removeLoader()"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

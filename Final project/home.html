@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI - Virtual Assistant</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;    
+            box-sizing: border-box;
+            font-family: "Poppins, sans-serif";
+        }
+        /*background image and arranging it to cover and center*/
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            min-height: 100vh;
+            background: url('bg1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* nav bar position in the right side and nav bar color*/
+        header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 99;
+        }
+        /*change the Logo size and color*/
+        .logo{
+            font-size: 2em;
+            color: rgb(255, 253, 253);
+            user-select: none;
+        }
+        /*changing the nav bar names colors*/
+        .navigation a{
+            position: relative;
+            font-size: 1.1em;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 40px;
+            text-align: center;  
+        }
+        /*line effect in the nav bar*/
+        .navigation a::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 70px;
+            height: 3px;
+            background: #f4f3f3;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+        
+        /*hover effect for line from right to left */
+        .navigation a:hover::after {
+            transform: scaleX(1);
+        }
+        /*Login button size and border radius and size*/
+        .navigation .btnLogin-popup {
+            width: 80px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #077d91;
+            outline:none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #f8f6f6;
+            margin-left: 40px;
+            font-weight: 500;
+            transition: .5s; 
+        }
+        /*hover effect for login button*/
+        .navigation .btnLogin-popup:hover {
+            background: #061c97;
+            color: #ecf2f7;
+        }
+
+        .main {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            padding-top: 80px; /* Adjust for navbar height */
+        }
+
+        #background-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container {
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-container h1 {
+            color: #fbffff;
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        .image-container p {
+            color: #d5e0df;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40vw;
+            max-width: 500px;
+            height: 50px;
+            border-radius: 20px;
+            background: rgba(214, 222, 213, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        .input input {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #000000;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+
+        .input button {
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            color: #0bbcbc;
+        }
+
+        .input .mic-button {
+            background: transparent;
+            outline: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            color: #0bbcbc;
+            margin-left: 10px;
+        }
+    </style>
+    <!-- Font Awesome Cdn Linkage -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <form id="registration" action="AILogin.html">
+    <header>
+        
+        <h2 class="logo"><img src="artificial-intelligence.png" alt="" width="50px"></h2>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="AIabout.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="AIcontactus.html">Contact us</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+        <!-- </form> -->
+    </header>
+    </form>
+    <section class="main">
+        <video autoplay muted loop id="background-video">
+            <source src="aihome.mp4" type="video/mp4">
+        </video>
+        <div class="image-container">
+            <h1>A I</h1>
+            <p>I'm a Virtual Assistant. How can I help you?</p>
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Type your query here..." id="query-input">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+            <button class="mic-button" id="mic-btn"><i class="fas fa-microphone"></i></button>
+        </div>
+    </section>
+    <script>
+        const btn = document.querySelector('#search-btn');
+        const input = document.querySelector('#query-input');
+        const micBtn = document.querySelector('#mic-btn');
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+
+        function speak(sentence) {
+            const text_speak = new SpeechSynthesisUtterance(sentence);
+            text_speak.rate = 1;
+            text_speak.pitch = 1;
+            window.speechSynthesis.speak(text_speak);
+        }
+        /* wishMe function: Greets the user based on the current time of day*/
+        function wishMe() {
+            const day = new Date();
+            const hr = day.getHours();
+            if (hr >= 0 && hr < 12) {
+                speak("Good Morning Boss. I'm a Virtual Assistant. How can I help you?");
+            } else if (hr == 12) {
+                speak("Good noon Boss. I'm a Virtual Assistant. How can I help you?");
+            } else if (hr > 12 && hr <= 17) {
+                speak("Good Afternoon Boss. I'm a Virtual Assistant. How can I help you?");
+            } else {
+                speak("Good Evening Boss. I'm a Virtual Assistant. How can I help you?");
+            }
+        }
+        /* Anonymous function on window load event: Activates the assistant and greets the user when the window loads*/
+        window.addEventListener('load', () => {
+            speak("Activating Artificial Intelligence");
+            speak("Going online");
+            wishMe();
+        });
+        /* Event listener on click for btn: Takes the user's query from an input field, clears the field, and navigates to a results page with the query*/
+        btn.addEventListener('click', () => {
+            const query = input.value.trim().toLowerCase();
+            if (query) {
+                input.value = '';
+                navigateToResultPage(query);
+            } else {
+                speak("Please type a query");
+            }
+        });
+        /* Event listener on click for micBtn: Starts speech recognition to take a voice command from the user*/
+        micBtn.addEventListener('click', () => {
+            recognition.start();
+        });
+        /*onresult event for recognition: Takes the recognized speech, puts it into the input field, and navigates to a results page with the query*/
+        recognition.onresult = (event) => {
+            const speechResult = event.results[0][0].transcript.toLowerCase();
+            input.value = speechResult;
+            navigateToResultPage(speechResult);
+        };
+        /* onspeechend event for recognition: Stops the speech recognition when the user stops speaking*/
+        recognition.onspeechend = () => {
+            recognition.stop();
+        };
+        /*onerror event for recognition: Provides feedback to the user if there's an error with the speech recognition*/
+        recognition.onerror = (event) => {
+            speak('Sorry, I did not get that. Please try again.');
+        };  
+        /*navigateToResultPage function: Navigates to a results page with the user's query*/
+        function navigateToResultPage(query) {
+            window.location.href = `result.html?query=${encodeURIComponent(query)}`;
+        }
+    </script>
+    
+</body>
+
+</html>

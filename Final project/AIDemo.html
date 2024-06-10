@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-DEMO</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        #background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+        }
+        #play-button {
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <video id="background-video" controls>
+        <source src="ai2.mp4" type="video/mp4">
+    </video>
+    <button id="play-button" class="btn btn-primary btn-lg">Play Video</button>
+    <script>
+        const video = document.getElementById('background-video');
+        const playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', () => {
+            video.play();
+            playButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
